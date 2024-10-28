@@ -9,6 +9,7 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private GameManager gamemanager;
     [SerializeField] private FightManager _fightManager;
     [SerializeField] private Button boutonplay;
+    [SerializeField] private Button retry;
     [SerializeField] private Button boutonmenu;
     [SerializeField] private Button boutontour;
     [SerializeField] private Button feu;
@@ -58,5 +59,11 @@ public class MenuUI : MonoBehaviour
         _fightManager.attack(-20, "Player");
         _fightManager.ChangeTurn(FightManager.FightState.Monster);
     }
-    
+
+    public void Retry()
+    {
+        _fightManager.hpMonster = 100;
+        _fightManager.hpPlayer = 100;
+        _fightManager.CurrentFightState = FightManager.FightState.Player;
+    }
 }
